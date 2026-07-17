@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home_loop_banner_cell"
+    android:paddingLeft="20dp"
+    android:paddingTop="18dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="28dp">
+
+    <!-- 业务侧单页布局:修改这里的文案、图片和排版不会影响 LoopBannerView 的轮播逻辑。 -->
+    <TextView
+        android:id="@+id/tv_loop_banner_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CUSTOM"
+        android:textAllCaps="true"
+        android:textColor="#CCFFFFFF"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/fl_loop_banner_icon"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bg_home_loop_banner_icon"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/iv_loop_banner_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/ic_tab_wealth" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_loop_banner_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_loop_banner_hint"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@id/fl_loop_banner_icon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="Loop Banner Title" />
+
+    <TextView
+        android:id="@+id/tv_loop_banner_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_loop_banner_title"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@id/fl_loop_banner_icon"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#E6FFFFFF"
+        android:textSize="13sp"
+        tools:text="Custom page layout from XML, with indicator inside the banner view." />
+
+</RelativeLayout>

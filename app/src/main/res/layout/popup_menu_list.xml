@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 外层留 10dp padding 给阴影绘制空间,clipChildren=false 保证阴影/三角不被裁剪 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:orientation="vertical">
+
+        <!-- 上三角:弹窗在按钮下方时显示,尖角朝上,和卡片同 elevation -->
+        <com.example.myapplication.menu.TriangleView
+            android:id="@+id/triangle_top"
+            android:layout_width="12dp"
+            android:layout_height="6dp"
+            android:elevation="6dp"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_menu"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_menu_popup"
+            android:elevation="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+
+        <!-- 下三角:弹窗在按钮上方时显示,尖角朝下,和卡片同 elevation -->
+        <com.example.myapplication.menu.TriangleView
+            android:id="@+id/triangle_bottom"
+            android:layout_width="12dp"
+            android:layout_height="6dp"
+            android:elevation="6dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</FrameLayout>

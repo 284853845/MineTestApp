@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- IconTextView 自定义属性 -->
+    <declare-styleable name="IconTextView">
+        <!-- 左侧图标资源 -->
+        <attr name="leftIcon" format="reference" />
+        <!-- 右侧图标资源 -->
+        <attr name="rightIcon" format="reference" />
+        <!-- 图标大小(宽高一致,左右通用),支持 sp/dp/px;不设置则用原始尺寸 -->
+        <attr name="iconSize" format="dimension" />
+        <!-- 图标着色(左右通用);不设置则保留原色 -->
+        <attr name="iconColor" format="color" />
+        <!-- 图标与文字的间距 -->
+        <attr name="iconPadding" format="dimension" />
+    </declare-styleable>
+</resources>

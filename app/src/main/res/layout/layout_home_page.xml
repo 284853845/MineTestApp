@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F3F5">
+
+    <com.example.myapplication.widget.SecondFloorLayout
+        android:id="@+id/second_floor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 下拉提示区域:样式由 RefreshHintView 内部处理 -->
+        <com.example.myapplication.widget.RefreshHintView
+            android:id="@+id/pull_hint"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_modules"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F2F3F5"
+            android:clipToPadding="false"
+            android:paddingBottom="70dp" />
+
+    </com.example.myapplication.widget.SecondFloorLayout>
+
+    <!-- 二楼展示组件:内部封装展开/关闭动画 -->
+    <com.example.myapplication.widget.SecondFloorView
+        android:id="@+id/second_floor_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/second_floor_content"
+            layout="@layout/layout_second_floor" />
+
+    </com.example.myapplication.widget.SecondFloorView>
+
+    <!-- 单行加载文本 + 结尾跳动三个点(演示自定义 LoadingTextView 效果) -->
+    <com.example.myapplication.widget.LoadingTextView
+        android:id="@+id/tv_loading_demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/bg_loading_pill"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
+        android:text="拼命加载中"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+</FrameLayout>

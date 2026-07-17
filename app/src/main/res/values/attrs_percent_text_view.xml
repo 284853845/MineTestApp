@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PercentTextView 自定义属性 -->
+    <declare-styleable name="PercentTextView">
+        <!-- '%' 字符的字号,支持 sp/dp/px -->
+        <attr name="percentTextSize" format="dimension" />
+    </declare-styleable>
+</resources>

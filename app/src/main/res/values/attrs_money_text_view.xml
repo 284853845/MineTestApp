@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MoneyTextView 自定义属性 -->
+    <declare-styleable name="MoneyTextView">
+        <!-- loading 圈颜色;不设置则取当前文字颜色 -->
+        <attr name="loadingColor" format="color" />
+        <!-- loading 圈线宽;默认 2dp -->
+        <attr name="loadingStrokeWidth" format="dimension" />
+        <attr name="showRightIconWhenHidden" format="boolean" />
+    </declare-styleable>
+</resources>

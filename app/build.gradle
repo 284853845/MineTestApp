@@ -1,0 +1,44 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.myapplication'
+    //noinspection GradleDependency
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 23
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.design
+    implementation libs.recyclerview
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.test.runner
+    androidTestImplementation libs.espresso.core
+}

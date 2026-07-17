@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_corner_badge"
+    android:gravity="center"
+    android:minHeight="18dp"
+    android:orientation="horizontal"
+    android:paddingLeft="7dp"
+    android:paddingTop="2dp"
+    android:paddingRight="7dp"
+    android:paddingBottom="2dp">
+
+    <TextView
+        android:id="@+id/tv_corner_badge_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:textColor="#FFFFFFFF"
+        android:textSize="10sp" />
+
+</LinearLayout>

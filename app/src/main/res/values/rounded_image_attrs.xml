@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_cornerRadius" format="dimension" />
+        <attr name="riv_backgroundColor" format="color" />
+    </declare-styleable>
+</resources>

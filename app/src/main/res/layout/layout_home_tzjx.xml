@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/shape_standard_home_tzjx_bg"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1" />
+
+        <com.example.myapplication.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更多"
+            android:textColor="#FFB97951"
+            android:textSize="12sp"
+            app:iconColor="#FF6A00"
+            app:iconSize="16dp"
+            app:rightIcon="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_standard_home_tzjx_top_bg"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="15dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="活钱管理｜灵活资金，满足随时用钱需求"
+            android:textColor="#FF201309"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.myapplication.widget.PercentTextView
+            android:id="@+id/tv_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.10%"
+            android:textColor="#FF5B2903"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_hint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:percentTextSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="成立以来年化收益率"
+            android:textColor="#FF843F0A"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.example.myapplication.widget.IconTextView
+            android:id="@+id/tv_label_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赎回最快T+0.5到账"
+            android:textColor="#FF843F0A"
+            android:textSize="12sp"
+            app:iconPadding="5dp"
+            app:iconSize="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_label_2"
+            app:layout_constraintStart_toStartOf="@+id/tv_label_2"
+            app:leftIcon="@mipmap/ic_launcher" />
+
+        <com.example.myapplication.widget.IconTextView
+            android:id="@+id/tv_label_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:text="赎回最快T+0.5到账"
+            android:textColor="#FF843F0A"
+            android:textSize="12sp"
+            app:iconPadding="5dp"
+            app:iconSize="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_hint"
+            app:layout_constraintStart_toEndOf="@+id/tv_hint"
+            app:layout_constraintTop_toTopOf="@id/tv_hint"
+            app:leftIcon="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/btn_look"
+            android:layout_width="56dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/shape_standard_home_tzjx_btn_bg"
+            android:gravity="center"
+            android:text="去看看"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_home_tzjx" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:paddingVertical="8dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.example.myapplication.widget.IconTextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="生日快乐，来看看您的专属生日福利吧"
+            android:textColor="#FF233576"
+            android:textSize="14sp"
+            app:iconColor="#FF6A00"
+            app:iconSize="16dp"
+            app:rightIcon="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <com.example.myapplication.widget.MoneyTextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rightIcon="@mipmap/ic_launcher"
+        android:textStyle="bold"
+        app:iconSize="16dp"
+        app:showRightIconWhenHidden="false"
+        android:text="100"
+        app:iconPadding="5dp"
+        android:textSize="20sp"
+        app:loadingColor="#333333"
+        app:loadingStrokeWidth="2dp" />
+</LinearLayout>

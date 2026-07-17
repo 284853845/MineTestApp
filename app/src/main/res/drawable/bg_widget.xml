@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 小组件整体背景，渐变 + 圆角，后续可自行修改颜色/圆角 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="135"
+        android:startColor="#FF4A6CF7"
+        android:endColor="#FF7B5BF5"
+        android:type="linear" />
+    <corners android:radius="20dp" />
+</shape>

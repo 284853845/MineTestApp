@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_module_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F3F5">
+
+    <com.example.myapplication.widget.SecondFloorLayout
+        android:id="@+id/second_floor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 下拉提示:这个 View 可完全自定义,SecondFloorLayout 只负责显示/隐藏/位移 -->
+        <TextView
+            android:id="@+id/tv_pull_hint"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#E3F2FD"
+            android:gravity="center"
+            android:text="下拉刷新"
+            android:textColor="#1976D2"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_modules"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F2F3F5"
+            android:clipToPadding="false"
+            android:paddingBottom="12dp" />
+
+    </com.example.myapplication.widget.SecondFloorLayout>
+
+    <!-- 二楼展示组件:内部封装展开/关闭动画,使用方只关心里面的布局样式 -->
+    <com.example.myapplication.widget.SecondFloorView
+        android:id="@+id/second_floor_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/layout_second_floor" />
+
+    </com.example.myapplication.widget.SecondFloorView>
+
+</FrameLayout>

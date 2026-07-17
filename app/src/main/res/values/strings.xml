@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <!-- 桌面小组件相关文案，可自行修改 -->
+    <string name="widget_small_title">我的组件</string>
+    <string name="widget_small_label">今日步数</string>
+    <string name="widget_small_unit">步</string>
+    <string name="widget_small_default_value">6,280</string>
+    <string name="widget_small_default_trend">↑ 比昨日 +12%</string>
+    <string name="widget_wide_title">数据概览</string>
+    <string name="widget_refresh">刷新</string>
+    <string name="widget_placeholder_value">--</string>
+    <string name="widget_placeholder_time">等待刷新</string>
+    <string name="widget_stat1_label">今日</string>
+    <string name="widget_stat2_label">本周</string>
+    <string name="widget_stat3_label">本月</string>
+
+    <!-- 2x4 组件右侧 4 个菜单默认文案（实际显示由配置决定） -->
+    <string name="widget_menu_default_1">首页</string>
+    <string name="widget_menu_default_2">财富</string>
+    <string name="widget_menu_default_3">贷款</string>
+    <string name="widget_menu_default_4">生活</string>
+
+    <!-- 桌面小组件设置页 -->
+    <string name="widget_settings_title">桌面小组件设置</string>
+    <string name="widget_settings_hint">配置 2×4 小组件右侧 4 个菜单分别打开的功能</string>
+    <string name="widget_settings_menu_label">菜单 %1$d</string>
+</resources>

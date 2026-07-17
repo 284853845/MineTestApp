@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1976D2"
+    android:orientation="vertical">
+
+    <!-- 可展开/收起容器:收起 200dp,展开到内容实际高度。
+         里面三个子 View 由你自己实现,用 ec_layout_role 标记角色。 -->
+    <com.example.myapplication.widget.ExpandableContainer
+        android:id="@+id/expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:ec_animDuration="300"
+        app:ec_collapsedHeight="80dp"
+        app:ec_expanded="true">
+
+        <!-- ① 实际内容:这里给一个 500dp 高的示例,你换成自己的布局即可 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:ec_layout_role="content">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@mipmap/ic_financial_header_money_bg">
+
+                <TextView
+                    android:id="@+id/tv_label_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="我的资产"
+                    android:textColor="#FFECD4"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:src="@mipmap/ic_financial_header_eyes_open"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_label_money"
+                    app:layout_constraintStart_toEndOf="@+id/tv_label_money"
+                    app:layout_constraintTop_toTopOf="@+id/tv_label_money" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="200,000.00"
+                    android:textColor="#FFECD4"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_label_money"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_label_money" />
+
+                <TextView
+                    android:id="@+id/tv_online_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="其中在途资金：100,000.00元"
+                    android:textColor="#CAB396"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/tv_label_money"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_money" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="30dp"
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/ic_financial_header_tijian_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/white" />
+
+        </LinearLayout>
+
+        <!-- ② 展开按钮:收起状态显示 -->
+        <TextView
+            android:id="@+id/btn_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginBottom="8dp"
+            android:background="#E3F2FD"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="展开 ▼"
+            android:textColor="#1976D2"
+            app:ec_layout_role="expand" />
+
+        <!-- ③ 收起按钮:展开状态显示 -->
+        <TextView
+            android:id="@+id/btn_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginBottom="8dp"
+            android:background="#E3F2FD"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="收起 ▲"
+            android:textColor="#1976D2"
+            app:ec_layout_role="collapse" />
+
+    </com.example.myapplication.widget.ExpandableContainer>
+
+</LinearLayout>

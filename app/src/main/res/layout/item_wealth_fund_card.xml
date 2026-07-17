@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_fund_card"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tv_fund_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFE53935"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_fund_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="近一年收益"
+        android:textColor="#FF999999"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/tv_fund_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FF222222"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_fund_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#FF5B6CFF"
+        android:textSize="11sp" />
+
+</LinearLayout>

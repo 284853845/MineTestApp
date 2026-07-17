@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 无限轮播 Banner -->
+    <declare-styleable name="InfiniteBannerView">
+        <!-- 圆角半径,默认 0(不裁圆角) -->
+        <attr name="banner_radius" format="dimension" />
+        <!-- 是否显示底部圆点指示器,默认 true -->
+        <attr name="banner_indicatorEnabled" format="boolean" />
+        <!-- 是否自动滚动,默认 false -->
+        <attr name="banner_autoScroll" format="boolean" />
+        <!-- 自动滚动间隔(毫秒),默认 3000 -->
+        <attr name="banner_autoScrollInterval" format="integer" />
+        <!-- side peek width for neighbor banner pages, default 10dp -->
+        <attr name="banner_sidePeek" format="dimension" />
+        <!-- height reduced on neighbor banner pages, default 20dp -->
+        <attr name="banner_sideHeightShrink" format="dimension" />
+    </declare-styleable>
+
+    <!-- 新版独立无限轮播 Banner:属性全部使用 loopBanner_ 前缀,避免影响旧 Banner。 -->
+    <declare-styleable name="LoopBannerView">
+        <!-- 是否开启自动轮播,默认 true。 -->
+        <attr name="loopBanner_autoScroll" format="boolean" />
+        <!-- 自动轮播间隔,单位毫秒;代码中最小限制为 1000ms。 -->
+        <attr name="loopBanner_autoScrollInterval" format="integer" />
+        <!-- 是否显示 Banner 内部自绘指示器。 -->
+        <attr name="loopBanner_indicatorEnabled" format="boolean" />
+        <!-- 当前选中指示器颜色。 -->
+        <attr name="loopBanner_indicatorSelectedColor" format="color" />
+        <!-- 未选中指示器颜色。 -->
+        <attr name="loopBanner_indicatorNormalColor" format="color" />
+        <!-- 当前选中指示器宽度。 -->
+        <attr name="loopBanner_indicatorSelectedWidth" format="dimension" />
+        <!-- 未选中指示器宽度。 -->
+        <attr name="loopBanner_indicatorNormalWidth" format="dimension" />
+        <!-- 指示器高度。 -->
+        <attr name="loopBanner_indicatorHeight" format="dimension" />
+        <!-- 相邻指示器之间的间距。 -->
+        <attr name="loopBanner_indicatorSpacing" format="dimension" />
+        <!-- 指示器整体距离 Banner 底部的间距。 -->
+        <attr name="loopBanner_indicatorBottomMargin" format="dimension" />
+        <!-- Banner 裁剪圆角半径,默认 0。 -->
+        <attr name="loopBanner_cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <!-- 可展开/收起容器 -->
+    <declare-styleable name="ExpandableContainer">
+        <!-- 收起状态下的高度,默认 200dp -->
+        <attr name="ec_collapsedHeight" format="dimension" />
+        <!-- 初始是否展开 -->
+        <attr name="ec_expanded" format="boolean" />
+        <!-- 动画时长(毫秒),默认 300 -->
+        <attr name="ec_animDuration" format="integer" />
+    </declare-styleable>
+
+    <!-- 自定义滑块控件-->
+    <declare-styleable name="SliderBar">
+        <!-- 滑块图片资源 -->
+        <attr name="sb_thumb" format="reference" />
+        <!-- 滑块宽度,默认 40dp -->
+        <attr name="sb_thumbWidth" format="dimension" />
+        <!-- 滑块高度,默认 40dp -->
+        <attr name="sb_thumbHeight" format="dimension" />
+        <!-- 等分份数,默认 5 -->
+        <attr name="sb_partCount" format="integer" />
+    </declare-styleable>
+
+    <!-- 下拉刷新 + 二楼触发容器 -->
+    <declare-styleable name="SecondFloorLayout">
+        <!-- 触发刷新的下拉阈值,默认 100dp -->
+        <attr name="sfl_refreshEnabled" format="boolean" />
+        <attr name="sfl_secondFloorEnabled" format="boolean" />
+        <attr name="sfl_refreshThreshold" format="dimension" />
+        <!-- 刷新中保持的下拉高度,默认 50dp -->
+        <attr name="sfl_refreshHoldHeight" format="dimension" />
+        <!-- 触发进入二楼的下拉阈值,默认 200dp -->
+        <attr name="sfl_switchThreshold" format="dimension" />
+    </declare-styleable>
+
+    <!-- 单行 + 结尾三个点循环显示的加载文本控件 -->
+    <declare-styleable name="LoadingTextView">
+        <!-- 点半径,默认 2.5dp -->
+        <attr name="ltv_dotRadius" format="dimension" />
+        <!-- 相邻两点圆心间距,默认 7dp -->
+        <attr name="ltv_dotSpacing" format="dimension" />
+        <!-- 文本结尾到第一个点的间距,默认 4dp -->
+        <attr name="ltv_dotGap" format="dimension" />
+        <!-- 一轮(1->2->3)动画的时长(毫秒),默认 900 -->
+        <attr name="ltv_animDuration" format="integer" />
+        <!-- 是否显示结尾三个点的动画,默认 true -->
+        <attr name="ltv_dotsAnimEnabled" format="boolean" />
+    </declare-styleable>
+
+    <!-- 子 View 的角色,放在 ExpandableContainer 直接子节点上 -->
+    <declare-styleable name="ExpandableContainer_Layout">
+        <attr name="ec_layout_role">
+            <!-- 实际内容(被裁剪/展开的那部分) -->
+            <enum name="content" value="0" />
+            <!-- 收起状态显示的"展开"按钮 -->
+            <enum name="expand" value="1" />
+            <!-- 展开状态显示的"收起"按钮 -->
+            <enum name="collapse" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>

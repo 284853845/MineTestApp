@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginRight="12dp"
+    android:background="@drawable/bg_module_card"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <com.example.myapplication.widget.LoopBannerView
+        android:id="@+id/loop_banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:loopBanner_autoScroll="true"
+        app:loopBanner_autoScrollInterval="3000"
+        app:loopBanner_indicatorBottomMargin="5dp"
+        app:loopBanner_indicatorEnabled="true"
+        app:loopBanner_indicatorHeight="2dp"
+        app:loopBanner_indicatorNormalColor="#FFFFFFFF"
+        app:loopBanner_indicatorNormalWidth="4dp"
+        app:loopBanner_indicatorSelectedColor="#FFFF0000"
+        app:loopBanner_indicatorSelectedWidth="8dp"
+        app:loopBanner_indicatorSpacing="2dp" />
+
+</LinearLayout>

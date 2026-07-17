@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/bg_profile_header"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.example.myapplication.widget.BadgeView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:dotMarginTop="2dp"
+        app:dotVisible="true"
+        app:dotSize="8dp"
+        tools:text="尊享白金客户" />
+
+    <TextView
+        android:id="@+id/tv_profile_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_level_badge"
+        android:paddingLeft="10dp"
+        android:paddingTop="3dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="3dp"
+        android:textColor="#7A4B00"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        tools:text="白金卡 VIP6" />
+
+    <TextView
+        android:id="@+id/tv_profile_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="#CCFFFFFF"
+        android:textSize="14sp"
+        tools:text="6225 **** **** 8888" />
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BadgeView 自定义属性 -->
+    <declare-styleable name="BadgeView">
+        <!-- 是否显示红点,默认 false -->
+        <attr name="dotVisible" format="boolean" />
+        <!-- 红点颜色,默认红色 -->
+        <attr name="dotColor" format="color" />
+        <!-- 红点直径,默认 8dp -->
+        <attr name="dotSize" format="dimension" />
+        <!-- 红点距右边缘的内边距,默认 2dp -->
+        <attr name="dotMarginRight" format="dimension" />
+        <!-- 红点距上边缘的内边距,默认 2dp -->
+        <attr name="dotMarginTop" format="dimension" />
+    </declare-styleable>
+</resources>

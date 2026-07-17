@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Banner 单个轮播 cell 的布局。
+  这是「使用的地方可自定义」的 XML:改背景/字号/增删控件都只需改本文件。
+  约定:根布局保持 match_parent x match_parent;若保留对应控件 id,
+        BannerModule 会自动绑定 title / subtitle / icon 数据。
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#42A5F5">
+
+    <ImageView
+        android:id="@+id/iv_banner_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        tools:src="@drawable/ic_tab_wealth" />
+
+    <TextView
+        android:id="@+id/tv_banner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/iv_banner_icon"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Banner 标题" />
+
+    <TextView
+        android:id="@+id/tv_banner_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_banner_title"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/iv_banner_icon"
+        android:textColor="#E0FFFFFF"
+        android:textSize="13sp"
+        tools:text="副标题描述" />
+
+</RelativeLayout>

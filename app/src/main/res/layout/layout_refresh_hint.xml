@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  下拉刷新提示区域布局。
+  具体样式(图标、文案、颜色等)在 SecondFloorLayout.RefreshHintStyler 回调里按下拉状态设置。
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ProgressBar
+        android:id="@+id/pb_refresh"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_refresh_arrow"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:src="@android:drawable/arrow_down_float" />
+
+    <TextView
+        android:id="@+id/tv_refresh_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下拉刷新"
+        android:textColor="#1976D2"
+        android:textSize="14sp" />
+
+</LinearLayout>
