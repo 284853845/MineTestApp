@@ -2,14 +2,19 @@ package com.example.myapplication.page;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.LayoutHomePageBinding;
+import com.example.myapplication.sequential.SequentialExecutorManager;
+import com.example.myapplication.sequential.SequentialTask;
 import com.example.myapplication.widget.SecondFloorLayout;
 import com.example.myapplication.widget.SecondFloorView;
 
@@ -86,6 +91,69 @@ public class HomePageFragment extends ModulePageFragment {
                 scrollToTopImmediately();
             }
         });
+
+        binding.btnSequentialDemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSequentialDemo();
+            }
+        });
+    }
+
+    /**
+     * 顺序执行器用例:一次性入队 3 个弹窗任务,它们会一个接一个地弹出,
+     * 前一个消失后才弹下一个。中途退出/销毁首页所在 Activity,剩余弹窗不再弹出。
+     */
+    private void startSequentialDemo() {
+        Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        SequentialExecutorManager manager = SequentialExecutorManager.get();
+        manager.enqueue(activity, new DialogTask("第 1 个弹窗", "关闭后会自动弹出第 2 个"));
+        manager.enqueue(activity, new DialogTask("第 2 个弹窗", "关闭后会自动弹出第 3 个"));
+        manager.enqueue(activity, new DialogTask("第 3 个弹窗", "这是最后一个"));
+        Toast.makeText(activity, "已入队 3 个弹窗,将依次弹出", Toast.LENGTH_SHORT).show();
+    }
+
+    /** 一个把 AlertDialog 包成顺序任务的示例:dismiss 时回调完成,cancel 时主动关闭。 */
+    private static final class DialogTask implements SequentialTask {
+
+        private final String title;
+        private final String message;
+        private AlertDialog dialog;
+
+        DialogTask(String title, String message) {
+            this.title = title;
+            this.message = message;
+        }
+
+        @Override
+        public void execute(@NonNull Activity host, @NonNull final Callback callback) {
+            dialog = new AlertDialog.Builder(host)
+                    .setTitle(title)
+                    .setMessage(message)
+                    .setPositiveButton("下一个", null)
+                    .create();
+            // dialog 消失(点按钮、返回键、外部点击)统一触发完成,推进队列。
+            dialog.setOnDismissListener(new android.content.DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(android.content.DialogInterface d) {
+                    callback.onComplete();
+                }
+            });
+            dialog.show();
+        }
+
+        @Override
+        public void cancel() {
+            // 执行器被清空(如页面销毁)时主动关闭当前弹窗。
+            if (dialog != null) {
+                dialog.setOnDismissListener(null); // 避免 cancel 引发的 dismiss 再回调
+                dialog.dismiss();
+                dialog = null;
+            }
+        }
     }
 
     public void onReadSmsPermissionChanged() {

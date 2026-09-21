@@ -37,6 +37,16 @@
 
     </com.example.myapplication.widget.SecondFloorView>
 
+    <!-- 顺序执行器用例演示按钮 -->
+    <Button
+        android:id="@+id/btn_sequential_demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="140dp"
+        android:text="顺序执行器 Demo"
+        android:textAllCaps="false" />
+
     <!-- 单行加载文本 + 结尾跳动三个点(演示自定义 LoadingTextView 效果) -->
     <com.example.myapplication.widget.LoadingTextView
         android:id="@+id/tv_loading_demo"
