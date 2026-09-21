@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/item_demo_page_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/item_demo_surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/item_demo_back"
+            android:padding="12dp"
+            android:src="@drawable/ic_arrow_back_24" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp"
+            android:text="@string/item_demo_title"
+            android:textColor="@color/item_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="@string/item_demo_section_text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/item_demo_surface"
+                android:orientation="vertical">
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_leftText="@string/item_demo_left_only"
+                    app:item_rightMode="hidden" />
+
+                <View style="@style/ItemDemoDivider" />
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_leftText="@string/item_demo_account_type"
+                    app:item_rightIcon="@drawable/ic_chevron_right_24"
+                    app:item_rightMode="text"
+                    app:item_rightText="@string/item_demo_premium_account" />
+
+                <View style="@style/ItemDemoDivider" />
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_leftText="@string/item_demo_delivery_address"
+                    app:item_rightMode="text"
+                    app:item_rightOverflow="ellipsis"
+                    app:item_rightText="@string/item_demo_long_address" />
+
+                <View style="@style/ItemDemoDivider" />
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_leftText="@string/item_demo_long_left"
+                    app:item_rightMode="text"
+                    app:item_rightText="@string/item_demo_default_ellipsis" />
+
+                <View style="@style/ItemDemoDivider" />
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="88dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    app:item_leftOverflow="wrap"
+                    app:item_leftText="@string/item_demo_long_left"
+                    app:item_rightMode="text"
+                    app:item_rightText="@string/item_demo_wrapped_value" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="@string/item_demo_section_input" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/item_demo_surface"
+                android:orientation="vertical">
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:id="@+id/item_editable_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_inputEditable="true"
+                    app:item_inputHint="@string/item_demo_input_hint"
+                    app:item_leftText="@string/item_demo_nickname"
+                    app:item_rightMode="input" />
+
+                <View style="@style/ItemDemoDivider" />
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:id="@+id/item_read_only_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_inputEditable="false"
+                    app:item_leftText="@string/item_demo_customer_number"
+                    app:item_rightMode="input" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="@string/item_demo_section_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/item_demo_surface"
+                android:orientation="vertical">
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="72dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    app:item_leftText="@string/item_demo_custom_style"
+                    app:item_leftTextColor="@color/item_demo_accent"
+                    app:item_leftTextSize="17sp"
+                    app:item_rightMode="text"
+                    app:item_rightText="@string/item_demo_custom_value"
+                    app:item_rightTextColor="@color/item_demo_value_accent"
+                    app:item_rightTextSize="13sp" />
+
+                <View style="@style/ItemDemoDivider" />
+
+                <com.example.myapplication.widget.ConfigurableItemView
+                    android:id="@+id/item_clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    app:item_leftText="@string/item_demo_click_item"
+                    app:item_rightIcon="@drawable/ic_chevron_right_24"
+                    app:item_rightMode="text"
+                    app:item_rightText="@string/item_demo_click_action" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

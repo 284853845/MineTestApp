@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="item_demo_page_background">#FF121316</color>
+    <color name="item_demo_surface">#FF1D1F23</color>
+    <color name="item_demo_divider">#FF33363C</color>
+    <color name="item_text_primary">#FFF2F3F5</color>
+    <color name="item_text_secondary">#FFBEC2C8</color>
+    <color name="item_text_hint">#FF858A92</color>
+    <color name="item_demo_accent">#FFFF6678</color>
+    <color name="item_demo_value_accent">#FF57C99B</color>
+</resources>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/item_demo_page_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/item_demo_surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/item_demo_back"
+            android:padding="12dp"
+            android:src="@drawable/ic_arrow_back_24" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp"
+            android:text="@string/audio_compression_title"
+            android:textColor="@color/item_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/audio_compression_description"
+                android:textColor="@color/item_text_secondary"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_select_audio"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_audio_primary_button"
+                android:minHeight="48dp"
+                android:text="@string/audio_select_file"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_audio_result_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/audio_selected_label"
+                    android:textColor="@color/item_text_hint"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_selected_audio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:breakStrategy="simple"
+                    android:text="@string/audio_not_selected"
+                    android:textColor="@color/item_text_primary"
+                    android:textSize="15sp" />
+
+                <ProgressBar
+                    android:id="@+id/progress_audio_compression"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="18dp"
+                    android:max="100"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_compression_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/audio_waiting"
+                    android:textColor="@color/item_text_secondary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_compressed_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/item_demo_value_accent"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_compressed_path"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:breakStrategy="simple"
+                    android:textColor="@color/item_text_secondary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

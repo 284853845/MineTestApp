@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.myapplication.AudioCompressionActivity;
+import com.example.myapplication.ItemComponentDemoActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.appwidget.WidgetSettingsActivity;
 import com.example.myapplication.list.core.ViewHolder;
@@ -80,6 +82,10 @@ public class SettingListModule extends IndependentCardModule<Map<String, Object>
     private void handleAction(Context ctx, String action) {
         if ("widget_settings".equals(action)) {
             ctx.startActivity(new Intent(ctx, WidgetSettingsActivity.class));
+        } else if ("audio_compression".equals(action)) {
+            ctx.startActivity(new Intent(ctx, AudioCompressionActivity.class));
+        } else if ("item_component_demo".equals(action)) {
+            ctx.startActivity(new Intent(ctx, ItemComponentDemoActivity.class));
         }
     }
 }

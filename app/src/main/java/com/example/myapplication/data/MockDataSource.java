@@ -231,11 +231,14 @@ public class MockDataSource implements DataSource {
             case "profile_setting":
                 return map("settings", Arrays.asList(
                         map("name", "桌面小组件设置", "icon", "ic_tab_setting", "action", "widget_settings"),
+                        map("name", "音频压缩示例", "icon", "ic_tab_message", "action", "audio_compression"),
                         map("name", "账户安全", "icon", "ic_tab_setting"),
                         map("name", "我的银行卡", "icon", "ic_tab_loan"),
                         map("name", "消息通知", "icon", "ic_tab_message"),
                         map("name", "帮助中心", "icon", "ic_tab_discover"),
-                        map("name", "关于我们", "icon", "ic_tab_profile")));
+                        map("name", "关于我们", "icon", "ic_tab_profile"),
+                        map("name", "自定义 Item 组件示例", "icon", "ic_tab_discover",
+                                "action", "item_component_demo")));
 
             default:
                 return null;

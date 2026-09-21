@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="item_demo_page_background">#FFF4F5F7</color>
+    <color name="item_demo_surface">#FFFFFFFF</color>
+    <color name="item_demo_divider">#FFE8E9EC</color>
+    <color name="item_text_primary">#FF222222</color>
+    <color name="item_text_secondary">#FF666666</color>
+    <color name="item_text_hint">#FF999999</color>
+    <color name="item_demo_accent">#FFD9273E</color>
+    <color name="item_demo_value_accent">#FF167A58</color>
 </resources>

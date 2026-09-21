@@ -32,6 +32,14 @@
             android:name=".appwidget.WidgetSettingsActivity"
             android:exported="false"
             android:label="@string/widget_settings_title" />
+        <activity
+            android:name=".ItemComponentDemoActivity"
+            android:exported="false"
+            android:label="@string/item_demo_title" />
+        <activity
+            android:name=".AudioCompressionActivity"
+            android:exported="false"
+            android:label="@string/audio_compression_title" />
 
         <!-- 2x2 桌面小组件 -->
         <receiver

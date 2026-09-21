@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="configurable_item_left" type="id" />
+    <item name="configurable_item_right" type="id" />
+    <item name="configurable_item_input" type="id" />
     <item name="tag_corner_badge_handle" type="id" />
 </resources>

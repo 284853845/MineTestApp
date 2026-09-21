@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ConfigurableItemView">
+        <attr name="item_leftText" format="string" />
+        <attr name="item_rightMode">
+            <enum name="hidden" value="0" />
+            <enum name="text" value="1" />
+            <enum name="input" value="2" />
+        </attr>
+        <attr name="item_rightText" format="string" />
+        <attr name="item_inputText" format="string" />
+        <attr name="item_rightIcon" format="reference" />
+        <attr name="item_inputHint" format="string" />
+        <attr name="item_inputEditable" format="boolean" />
+        <attr name="item_leftTextSize" format="dimension" />
+        <attr name="item_rightTextSize" format="dimension" />
+        <attr name="item_inputTextSize" format="dimension" />
+        <attr name="item_leftTextColor" format="color" />
+        <attr name="item_rightTextColor" format="color" />
+        <attr name="item_inputTextColor" format="color" />
+        <attr name="item_inputHintColor" format="color" />
+        <attr name="item_contentSpacing" format="dimension" />
+        <attr name="item_rightIconPadding" format="dimension" />
+        <attr name="item_leftOverflow">
+            <enum name="ellipsis" value="0" />
+            <enum name="wrap" value="1" />
+        </attr>
+        <attr name="item_rightOverflow">
+            <enum name="ellipsis" value="0" />
+            <enum name="wrap" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
