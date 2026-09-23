@@ -37,6 +37,44 @@
 
     </com.example.myapplication.widget.SecondFloorView>
 
+    <!-- 全局 Loading 演示按钮组 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="185dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_loading_single"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="单笔交易 Loading (2s)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_loading_concurrent"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="并发 3 笔 (2/3/4s 结束)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_loading_message"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="自定义文案 (支付中)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_loading_force"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="强制关闭 loading"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
     <!-- 顺序执行器用例演示按钮 -->
     <Button
         android:id="@+id/btn_sequential_demo"

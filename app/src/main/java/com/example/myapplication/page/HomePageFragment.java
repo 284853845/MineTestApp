@@ -2,6 +2,8 @@ package com.example.myapplication.page;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.LayoutHomePageBinding;
+import com.example.myapplication.loading.GlobalLoading;
 import com.example.myapplication.sequential.SequentialExecutorManager;
 import com.example.myapplication.sequential.SequentialTask;
 import com.example.myapplication.widget.SecondFloorLayout;
@@ -98,6 +101,85 @@ public class HomePageFragment extends ModulePageFragment {
                 startSequentialDemo();
             }
         });
+
+        binding.btnLoadingSingle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSingleTransaction();
+            }
+        });
+        binding.btnLoadingConcurrent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startConcurrentTransactions();
+            }
+        });
+        binding.btnLoadingMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startTransactionWithMessage();
+            }
+        });
+        binding.btnLoadingForce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GlobalLoading.dismissAll(getActivity());
+            }
+        });
+    }
+
+    private final Handler demoHandler = new Handler(Looper.getMainLooper());
+
+    /** 单笔交易:显示 loading,2 秒后结束。 */
+    private void startSingleTransaction() {
+        final Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        GlobalLoading.show(activity);
+        demoHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                GlobalLoading.hide(activity);
+            }
+        }, 2000);
+    }
+
+    /**
+     * 并发 3 笔交易:各自 show,分别在 2s/3s/4s 结束。
+     * loading 会一直显示,直到最后一笔(4s)结束才关闭,演示引用计数。
+     */
+    private void startConcurrentTransactions() {
+        final Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        long[] durations = {2000, 3000, 4000};
+        for (long d : durations) {
+            GlobalLoading.show(activity);
+            demoHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GlobalLoading.hide(activity);
+                }
+            }, d);
+        }
+        Toast.makeText(activity, "已发起 3 笔交易,4 秒后才会关闭 loading", Toast.LENGTH_SHORT).show();
+    }
+
+    /** 带自定义文案的交易:显示"支付中",2 秒后结束。 */
+    private void startTransactionWithMessage() {
+        final Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        GlobalLoading.show(activity, "支付中");
+        demoHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                GlobalLoading.hide(activity);
+            }
+        }, 2000);
     }
 
     /**
@@ -178,6 +260,7 @@ public class HomePageFragment extends ModulePageFragment {
 
     @Override
     public void onDestroyView() {
+        demoHandler.removeCallbacksAndMessages(null);
         if (secondFloorView != null) {
             ViewGroup parent = (ViewGroup) secondFloorView.getParent();
             if (parent != null) {

@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.example.myapplication.loading.GlobalLoadingManager;
 import com.example.myapplication.sequential.SequentialExecutorManager;
 
 /**
  * 应用入口。通过 {@link Application.ActivityLifecycleCallbacks} 统一在 Activity 销毁时
- * 清理其顺序执行器，无需任何 Activity 继承特定基类。
+ * 清理其顺序执行器与全局 loading，无需任何 Activity 继承特定基类。
  */
 public class MyApplication extends Application {
 
@@ -21,8 +22,8 @@ public class MyApplication extends Application {
     }
 
     /**
-     * 只关心 onActivityDestroyed：页面销毁即移除并拆除该 Activity 的执行器，
-     * 清空其待执行任务、取消当前正在展示的弹窗。其余回调无操作。
+     * 只关心 onActivityDestroyed：页面销毁即移除并拆除该 Activity 的执行器与全局 loading，
+     * 清空其待执行任务、取消当前正在展示的弹窗、关闭残留的 loading 弹窗。其余回调无操作。
      */
     private static final class SequentialLifecycleCallbacks
             implements Application.ActivityLifecycleCallbacks {
@@ -30,6 +31,7 @@ public class MyApplication extends Application {
         @Override
         public void onActivityDestroyed(@NonNull Activity activity) {
             SequentialExecutorManager.get().remove(activity);
+            GlobalLoadingManager.get().remove(activity);
         }
 
         @Override

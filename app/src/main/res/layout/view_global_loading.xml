@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  全局 loading 弹窗的内容视图：作为 Dialog 的 contentView 铺满整个弹窗窗口。
+  拦截触摸/返回键由 Dialog 窗口本身（setCancelable(false)）负责，此处无需 clickable；
+  背景透明，只露出居中的深色胶囊，内含带点动画的「加载中」文本，弹窗背后由窗口 dim 变暗。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/global_loading_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <com.example.myapplication.widget.LoadingTextView
+        android:id="@+id/global_loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_global_loading_pill"
+        android:paddingLeft="20dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12dp"
+        android:text="加载中"
+        android:textColor="#FFFFFFFF"
+        android:textSize="15sp" />
+
+</FrameLayout>
