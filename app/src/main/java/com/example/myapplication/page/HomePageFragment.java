@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.LayoutHomePageBinding;
+import com.example.myapplication.error.GlobalError;
 import com.example.myapplication.loading.GlobalLoading;
 import com.example.myapplication.sequential.SequentialExecutorManager;
 import com.example.myapplication.sequential.SequentialTask;
@@ -126,6 +127,19 @@ public class HomePageFragment extends ModulePageFragment {
                 GlobalLoading.dismissAll(getActivity());
             }
         });
+
+        binding.btnErrorSingle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSingleError();
+            }
+        });
+        binding.btnErrorConcurrent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startConcurrentErrors();
+            }
+        });
     }
 
     private final Handler demoHandler = new Handler(Looper.getMainLooper());
@@ -180,6 +194,30 @@ public class HomePageFragment extends ModulePageFragment {
                 GlobalLoading.hide(activity);
             }
         }, 2000);
+    }
+
+    /** 单个错误:直接弹一个错误弹窗。 */
+    private void startSingleError() {
+        Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        GlobalError.show(activity, "交易失败", "网络异常，请稍后重试");
+    }
+
+    /**
+     * 并发报错:连续触发 3 个错误,验证「已有弹窗时后续丢弃」——最终只会弹出第 1 个,
+     * 关闭它之后也不会再补弹第 2、3 个。
+     */
+    private void startConcurrentErrors() {
+        Activity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        GlobalError.show(activity, "交易失败", "错误 1：余额不足");
+        GlobalError.show(activity, "交易失败", "错误 2：超出限额");
+        GlobalError.show(activity, "交易失败", "错误 3：风控拦截");
+        Toast.makeText(activity, "已触发 3 个错误,只会弹出第 1 个", Toast.LENGTH_SHORT).show();
     }
 
     /**

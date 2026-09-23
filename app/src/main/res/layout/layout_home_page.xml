@@ -73,6 +73,20 @@
             android:text="强制关闭 loading"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_error_single"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="单个错误弹窗"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_error_concurrent"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="并发 3 个错误 (只弹 1 个)"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
     <!-- 顺序执行器用例演示按钮 -->
