@@ -232,6 +232,7 @@ public class MockDataSource implements DataSource {
                 return map("settings", Arrays.asList(
                         map("name", "桌面小组件设置", "icon", "ic_tab_setting", "action", "widget_settings"),
                         map("name", "音频压缩示例", "icon", "ic_tab_message", "action", "audio_compression"),
+                        map("name", "功能 Demo 示例", "icon", "ic_tab_discover", "action", "function_demo"),
                         map("name", "账户安全", "icon", "ic_tab_setting"),
                         map("name", "我的银行卡", "icon", "ic_tab_loan"),
                         map("name", "消息通知", "icon", "ic_tab_message"),

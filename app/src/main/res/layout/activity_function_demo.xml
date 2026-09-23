@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/item_demo_page_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/item_demo_surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/function_demo_back"
+            android:padding="12dp"
+            android:src="@drawable/ic_arrow_back_24" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp"
+            android:text="@string/function_demo_title"
+            android:textColor="@color/item_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="全局 Loading" />
+
+            <Button
+                android:id="@+id/btn_loading_single"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="单笔交易 Loading (2s)"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_loading_concurrent"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="并发 3 笔 (2/3/4s 结束)"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_loading_message"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="自定义文案 (支付中)"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_loading_force"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="强制关闭 loading"
+                android:textAllCaps="false" />
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="全局错误弹窗" />
+
+            <Button
+                android:id="@+id/btn_error_single"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="单个错误弹窗"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_error_concurrent"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="并发 3 个错误 (只弹 1 个)"
+                android:textAllCaps="false" />
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="顺序执行器" />
+
+            <Button
+                android:id="@+id/btn_sequential_demo"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="顺序执行器 Demo"
+                android:textAllCaps="false" />
+
+            <TextView
+                style="@style/ItemDemoSectionTitle"
+                android:text="加载文本控件 (LoadingTextView)" />
+
+            <com.example.myapplication.widget.LoadingTextView
+                android:id="@+id/tv_loading_demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_loading_pill"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:text="拼命加载中"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

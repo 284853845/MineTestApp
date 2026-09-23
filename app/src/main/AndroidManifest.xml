@@ -41,6 +41,10 @@
             android:name=".AudioCompressionActivity"
             android:exported="false"
             android:label="@string/audio_compression_title" />
+        <activity
+            android:name=".DemoActivity"
+            android:exported="false"
+            android:label="@string/function_demo_title" />
 
         <!-- 2x2 桌面小组件 -->
         <receiver

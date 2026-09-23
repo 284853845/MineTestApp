@@ -27,6 +27,9 @@
     <string name="widget_settings_menu_label">菜单 %1$d</string>
 
     <string name="item_demo_entry">自定义 Item 组件示例</string>
+    <string name="function_demo_entry">功能 Demo 示例</string>
+    <string name="function_demo_title">功能 Demo 示例</string>
+    <string name="function_demo_back">返回</string>
     <string name="item_demo_title">自定义 Item 组件</string>
     <string name="item_demo_back">返回</string>
     <string name="item_demo_section_text">文字模式</string>

@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.AudioCompressionActivity;
+import com.example.myapplication.DemoActivity;
 import com.example.myapplication.ItemComponentDemoActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.appwidget.WidgetSettingsActivity;
@@ -86,6 +87,8 @@ public class SettingListModule extends IndependentCardModule<Map<String, Object>
             ctx.startActivity(new Intent(ctx, AudioCompressionActivity.class));
         } else if ("item_component_demo".equals(action)) {
             ctx.startActivity(new Intent(ctx, ItemComponentDemoActivity.class));
+        } else if ("function_demo".equals(action)) {
+            ctx.startActivity(new Intent(ctx, DemoActivity.class));
         }
     }
 }
