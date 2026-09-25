@@ -40,6 +40,9 @@ import java.lang.ref.WeakReference;
  * <p><b>延时关闭（防闪烁）</b>：计数归零时不立即关闭，而是延时 {@link #DISMISS_DELAY_MS} 毫秒再关；
  * 若延时窗口内又有新交易 {@link #show(CharSequence)} 进来，则取消这次关闭、直接复用当前弹窗。
  * 用于「上一笔关闭后立刻发起下一笔」时保持弹窗不间断，避免一关一开的闪烁。
+ *
+ * <p><b>兜底关闭</b>：弹窗首次显示后，若超过 {@link GlobalLoading#getAutoDismissTimeoutMillis()} 毫秒仍未收到
+ * {@link #hide()}，则自动清零计数并关闭弹窗，避免异常路径漏调 hide 导致 loading 一直阻塞页面。
  */
 final class LoadingController {
 
@@ -76,6 +79,17 @@ final class LoadingController {
         }
     };
 
+    /** 防止异常路径漏调 hide，自动清零并关闭 loading。 */
+    private final Runnable timeoutDismiss = new Runnable() {
+        @Override
+        public void run() {
+            if (refCount > 0) {
+                refCount = 0;
+                dismissDialog();
+            }
+        }
+    };
+
     LoadingController(@NonNull Activity activity) {
         this.hostRef = new WeakReference<>(activity);
     }
@@ -91,6 +105,9 @@ final class LoadingController {
             refCount++;
             if (refCount == 1) {
                 showDialog(message);
+                if (dialog != null) {
+                    scheduleTimeoutDismiss();
+                }
             } else if (!TextUtils.isEmpty(message)) {
                 updateMessage(message);
             }
@@ -107,6 +124,7 @@ final class LoadingController {
             refCount--;
             if (refCount <= 0) {
                 refCount = 0;
+                mainHandler.removeCallbacks(timeoutDismiss);
                 scheduleDismiss();
             }
         });
@@ -117,6 +135,7 @@ final class LoadingController {
     void destroy() {
         runOnMain(() -> {
             mainHandler.removeCallbacks(delayedDismiss);
+            mainHandler.removeCallbacks(timeoutDismiss);
             refCount = 0;
             dismissDialog();
         });
@@ -193,6 +212,13 @@ final class LoadingController {
         }
         mainHandler.removeCallbacks(delayedDismiss);
         mainHandler.postDelayed(delayedDismiss, DISMISS_DELAY_MS);
+    }
+
+    /** 当前这段连续显示首次成功后安排兜底关闭，后续并发 show 不会重置计时。 */
+    @MainThread
+    private void scheduleTimeoutDismiss() {
+        mainHandler.removeCallbacks(timeoutDismiss);
+        mainHandler.postDelayed(timeoutDismiss, GlobalLoading.getAutoDismissTimeoutMillis());
     }
 
     @MainThread
